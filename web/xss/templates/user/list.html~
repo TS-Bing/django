@@ -1,0 +1,55 @@
+</br>
+<div class="search">
+		<form enctype="multipart/form-data" action="/search/" method="get">
+		<select name="l" class="isselect"> 
+			<option value="like" selected="selected">模糊搜索</option> 
+			<option value="know">精确搜索</option> 
+		</select>
+		
+		<select name="t" class="isselect"> 
+			<option value="nickname" selected="selected">--昵称--</option> 
+			<option value="name">--姓名--</option> 
+			<option value="mail">邮箱地址</option> 
+			<option value="card">身份证件</option> 
+			<option value="phone">移动电话</option> 
+			<option value="site">来源站点</option> 
+		</select> 
+		<input name="q" type="text" value="大爷 请输入关键字!" />
+		<input type="submit" value="search" >
+		<!-- <input type="image" name="sbmit" value="search" class="sub" src="/static/images/1.gif" onclick="this.form.submit()"/>  -->
+		</form>
+
+</div>
+</br>
+<div class="content">
+<ul>
+<li class="a">昵称</li>
+<li class="b">姓名</li>
+<li class="c">密码</li>
+<li class="d">邮箱</li>
+<li class="e">身份证</li>
+<li class="f">电话</li>
+<li class="g">注册IP</li>
+<li class="h">QQ</li>
+<li class="i">所属企业</li>
+<li class="j">来源站点</li>
+</ul>
+
+{% for i in test %}
+<ul>
+<li class="a">{{ i.nickname }}</li>
+<li class="b">{{ i.name }}</li>
+<li class="c">{{ i.pwd }}</li>
+<li class="d">{{ i.mail }}</li>
+<li class="e">{{ i.card }}</li>
+<li class="f">{{ i.phone }}</li>
+<li class="g">{{ i.ip }}</li>
+<li class="h">{{ i.qq }}</li>
+<li class="i">{{ i.address }}</li>
+<li class="j">{{ i.site }}</li>
+</ul>
+{% endfor %}
+
+</div>
+</br>
+<pre>Count data: {{ count }}   Time: {{ time }} </pre>

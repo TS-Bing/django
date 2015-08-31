@@ -1,0 +1,33 @@
+{% extends 'index/base.html' %}
+
+{% block stylesheet %}
+<link href="/static/css/style.css" rel='stylesheet' type='text/css' />
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<script type="application/x-javascript"> 
+	addEventListener("load", 
+		function() { setTimeout(hideURLbar, 0); }, false); 
+	function hideURLbar(){ 
+		window.scrollTo(0,1);
+		} 
+</script>
+{% endblock %}
+
+
+{% block content %}
+<h1>Social Engineering</h1>
+<div class="login-form">
+{% if message %}
+<p class="error">{{ message }}</p>
+{% endif %}
+
+	<div class="avtar"><img src="/static/images/avtar.png" /></div>
+	<form action="" method="post">
+		{% csrf_token %}
+		<input type="text" class="text" value="Username" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Username';}" name="username">
+		<input type="password" value="Password" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Password';}" name="password">
+		<input type="submit" value="Login" >
+	</form>
+</div>
+{% endblock %}
+
+
